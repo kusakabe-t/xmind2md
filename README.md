@@ -1,4 +1,4 @@
-# XMind2Pdf
+# XMind2Md
 
 ## Install
 ```shell
@@ -8,7 +8,7 @@ $ npm link
 
 ## Usage
 ```shell
-$ xmind2pdf
+$ xmind2md
 ➜ xmind2md 
 ? Which Xmind File Convert Markdown? (Use arrow keys)
 ❯ filename1.xmind 
