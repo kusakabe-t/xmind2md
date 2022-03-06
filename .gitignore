@@ -1,0 +1,5 @@
+sample
+tmp
+*.xmind
+yarn-error.log
+node_modules

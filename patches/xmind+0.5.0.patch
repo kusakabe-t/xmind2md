@@ -1,0 +1,15 @@
+diff --git a/node_modules/xmind/lib/workbook.js b/node_modules/xmind/lib/workbook.js
+index f3520f3..c7fa22f 100644
+--- a/node_modules/xmind/lib/workbook.js
++++ b/node_modules/xmind/lib/workbook.js
+@@ -78,6 +78,10 @@ class Workbook extends DomMixin {
+     return this.sheets[0];
+   }
+ 
++  getSheets() {
++    return this.sheets;
++  }
++
+   addSheet(options) {
+     /*
+      * options: {
