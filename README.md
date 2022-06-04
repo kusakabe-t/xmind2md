@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/715207612e0d448c834476afd8d006f5)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kusakabe-t/xmind2md&amp;utm_campaign=Badge_Grade)
+
 # XMind2Pdf
 
 ## Install
