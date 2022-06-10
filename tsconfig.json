@@ -1,0 +1,15 @@
+
+{
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": false,
+    "skipLibCheck": false,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "lib": ["ESNext"]
+  },
+  "exclude": ["node_modules"],
+}

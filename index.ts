@@ -1,16 +1,16 @@
 import * as fs from 'fs'
+// @ts-expect-error TODO: XMindの型定義ファイルを準備する
 import xmind from 'xmind'
-
-const inquirer = require('inquirer')
+import * as inquirer from "inquirer";
 import {writeFileSyncRecursive} from './lib/writeFileSyncRecursive'
 import {MdSyntax} from './lib/mdSyntax'
+import * as Core from 'xmind-model'
 
 const mdSyntax = new MdSyntax()
-const mdContent = [];
+const mdContent: string[] = [];
 
 main()
 
-// ['text.xmind', 'hoge.xmind']のようなファイルが返ってくることを示す型をつけたい
 async function localFiles() {
   const files = await fs.promises.readdir(process.cwd())
   return files.filter(file => file.includes('.xmind'))
@@ -22,7 +22,7 @@ async function main() {
     {
       type: 'list',
       name: 'xmindFile',
-      message: 'Which Xmind File Convert Markdown?',
+      message: 'Which XMind File Convert Markdown?',
       choices: await localFiles()
     },
     {
@@ -33,7 +33,7 @@ async function main() {
     }
   ])
 
-  const workbook = xmind.open(xmindFile)
+  const workbook: Core.Workbook = xmind.open(xmindFile)
   const sheets = workbook.getSheets()
 
   // Read XMind data
@@ -41,7 +41,7 @@ async function main() {
     mdContent.push(mdSyntax.sheetName(sheet.getTitle()));
     mdContent.push(mdSyntax.centralTopic(sheet.getRootTopic().getTitle()));
 
-    getXmindData(sheet.rootTopic, mdContent, 1)
+    getXmindData(sheet.getRootTopic(), mdContent, 1)
   })
 
   // Connect XMind data
@@ -51,13 +51,17 @@ async function main() {
   writeFileSyncRecursive(destination, resultContent);
 }
 
-function getXmindData(node, mdContent, depth) {
-  node.children.forEach((node) => {
-    let title = node.getTitle()
+interface Test extends Core.Topic {
+  children?: Core.Topic[]
+}
+
+function getXmindData(node: Test, mdContent: string[], depth: number) {
+  node.children && node.children.forEach((_node) => {
+    const title = _node.getTitle()
 
     mdContent.push(mdSyntax.header(depth, title.replace(/(\r\n|\n|\r)/gm, '\\n')));
 
-    getXmindData(node, mdContent, ++depth)
+    getXmindData(_node, mdContent, ++depth)
     depth--
   })
 }
