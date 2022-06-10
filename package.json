@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "postinstall": "patch-package",
-    "lint": "prettier . && eslint lib/*.ts",
+    "lint": "prettier ./lib index.ts && eslint ./lib/*.ts index.ts",
     "build": "rm -rf ./dist && webpack",
     "export": "node ./dist/bundle.js"
   },
