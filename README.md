@@ -1,7 +1,8 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/715207612e0d448c834476afd8d006f5)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kusakabe-t/xmind2md&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/66a733d68ddf4ab982e88c1687ecf445)](https://www.codacy.com/gh/kusakabe-t/xmind2md/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kusakabe-t/xmind2md&amp;utm_campaign=Badge_Grade)
 
 # XMind2Markdown
 This Tools supports XMind8 (https://www.xmind.net/xmind8-pro/).
+
 Not Supports XMind 2020 later.
 
 ## Install
