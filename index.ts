@@ -2,8 +2,8 @@ import * as fs from 'fs'
 // @ts-expect-error TODO: XMindの型定義ファイルを準備する
 import xmind from 'xmind'
 import * as inquirer from "inquirer";
-import {writeFileSyncRecursive} from './lib/writeFileSyncRecursive'
-import {MdSyntax} from './lib/mdSyntax'
+import { writeFileSyncRecursive } from './lib/writeFileSyncRecursive'
+import { MdSyntax } from './lib/mdSyntax'
 import * as Core from 'xmind-model'
 
 const mdSyntax = new MdSyntax()
@@ -17,8 +17,7 @@ async function localFiles() {
 }
 
 async function main() {
-  // inquirerの型をつけたい
-  const {xmindFile, destination} = await inquirer.prompt([
+  const { xmindFile, destination } = await inquirer.prompt([
     {
       type: 'list',
       name: 'xmindFile',
@@ -51,11 +50,11 @@ async function main() {
   writeFileSyncRecursive(destination, resultContent);
 }
 
-interface Test extends Core.Topic {
+interface XMindNode extends Core.Topic {
   children?: Core.Topic[]
 }
 
-function getXmindData(node: Test, mdContent: string[], depth: number) {
+function getXmindData(node: XMindNode, mdContent: string[], depth: number) {
   node.children && node.children.forEach((_node) => {
     const title = _node.getTitle()
 
