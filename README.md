@@ -15,8 +15,8 @@ $ npm link
 ## Usage
 ```shell
 $ cd <XMind file location>
-$ xmind2pdf
-➜ xmind2md 
+$ xmind2md
+➜ xmind2md
 ? Which Xmind File Convert Markdown? (Use arrow keys)
 ❯ filename1.xmind 
   filename2.xmind 
